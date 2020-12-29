@@ -186,7 +186,7 @@ ymesh = np.array(modeldffmp["m_h2"]).reshape((len(xbins),len(ybins))).transpose(
 hmesh = np.array(modeldffmp["pdf"]).reshape((len(xbins),len(ybins))).transpose()
 im = ax.pcolormesh(xmesh,ymesh,hmesh)
 fig.colorbar(im, ax=ax)
-plot_functions.plotXhh()
+plot_functions.plotSR()
 plt.xlabel("$m_{h1}$")
 plt.ylabel("$m_{h2}$")
 plt.savefig(ModelName+"_fullmassplane.png")
@@ -248,7 +248,7 @@ extra_plotting=False
 if extra_plotting:
     # Just plot the massplane from data
     plt.hist2d(df["m_h1"],df["m_h2"],[xbins,ybins],[[0,300],[0,300]])
-    plot_functions,plotXhh()
+    plot_functions,plotSR()
     plt.savefig("Fullmassplane.png")
     plt.close()
 

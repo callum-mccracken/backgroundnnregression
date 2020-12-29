@@ -161,7 +161,7 @@ for NxbinsInSig in [25]: #range(25,251,5):
             pickle.dump(hmesh,open(f"hmesh.p",'wb'))
 
             ax.pcolormesh(xmesh,ymesh,hmesh, shading='auto')
-            plot_functions.plotXhh()
+            plot_functions.plotSR()
             plt.xlabel("$m_{h1}$")
             plt.ylabel("$m_{h2}$")
             plt.title(f"Massplane, using data, NTag={NTag}")
@@ -218,7 +218,7 @@ for NxbinsInSig in [25]: #range(25,251,5):
         ymesh = np.array(modeldffmp["mh2"]).reshape((len(xbins),len(ybins))).transpose()
         hmesh = np.array(modeldffmp["pdf"]).reshape((len(xbins),len(ybins))).transpose()
         ax.pcolormesh(xmesh,ymesh,hmesh, shading='auto')
-        plot_functions.plotXhh()
+        plot_functions.plotSR()
         plt.xlabel("$m_{h1}$")
         plt.ylabel("$m_{h2}$")
         plt.title(f"{ModelName} Model-predicted massplane, NTag={NTag}")
@@ -286,7 +286,7 @@ for NxbinsInSig in [25]: #range(25,251,5):
         if extra_plotting:
             # Just plot the massplane from data
             plt.hist2d(df["m_h1"],df["m_h2"],[xbins,ybins],[[0,300],[0,300]])
-            plot_functions.plotXhh()
+            plot_functions.plotSR()
             plt.savefig("Fullmassplane.png")
             plt.close()
 

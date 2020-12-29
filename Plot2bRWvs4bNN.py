@@ -28,7 +28,7 @@ else:
 ModelName = "models/PG_model_4b_10505050_30e_25x25_poisson_20mhh"
 
 
-def plotXhh(mh1_0, mh2_0, r, Xhh_cut, mh1_min, mh1_max, mh2_min, mh2_max, color):
+def plotSR(mh1_0, mh2_0, r, Xhh_cut, mh1_min, mh1_max, mh2_min, mh2_max, color):
     mh1, mh2 = sp.symbols('mh1 mh2')
     sg_expr = ((mh1-mh1_0)/(r*mh1))**2 + ((mh2-mh2_0)/(r*mh2))**2
     sg_eq = sp.Eq(sg_expr, Xhh_cut**2)
@@ -129,7 +129,7 @@ ymesh = np.array(modeldffmp["mh2"]).reshape((len(xbins),len(ybins))).transpose()
 hmesh = np.array(modeldffmp["pdf"]).reshape((len(xbins),len(ybins))).transpose()
 hmesh_2brw = hmesh
 ax.pcolormesh(xmesh,ymesh,hmesh,shading='auto')
-plotXhh(120,110,0.1,1.6,sxmin,sxmax,symin,symax,'r')
+plotSR(120,110,0.1,1.6,sxmin,sxmax,symin,symax,'r')
 plt.xlabel("$m_{h1}$")
 plt.ylabel("$m_{h2}$")
 plt.savefig(ModelName+"_fullmassplane_4bNN.png")
@@ -144,7 +144,7 @@ xmesh = np.array(modeldffmp["mh1"]).reshape((len(xbins),len(ybins))).transpose()
 ymesh = np.array(modeldffmp["mh2"]).reshape((len(xbins),len(ybins))).transpose()
 hmesh = np.array(modeldffmp["pdf"]).reshape((len(xbins),len(ybins))).transpose()
 ax.pcolormesh(xmesh,ymesh,hmesh,shading='auto')
-plotXhh(120,110,0.1,1.6,sxmin,sxmax,symin,symax,'r')
+plotSR(120,110,0.1,1.6,sxmin,sxmax,symin,symax,'r')
 plt.xlabel("$m_{h1}$")
 plt.ylabel("$m_{h2}$")
 plt.savefig(ModelName+"_fullmassplane_2brw.png")
@@ -159,7 +159,7 @@ fig = plt.figure()
 ax = fig.add_subplot(111)
 im=ax.pcolormesh(xmesh,ymesh,hmesh_ratio,vmin=0.8,vmax=1.4, cmap='bwr')
 fig.colorbar(im, ax=ax)
-plotXhh(120,110,0.1,1.6,sxmin,sxmax,symin,symax,'r')
+plotSR(120,110,0.1,1.6,sxmin,sxmax,symin,symax,'r')
 plt.xlabel("$m_{h1}$")
 plt.ylabel("$m_{h2}$")
 plt.savefig(ModelName+"_fullmassplane_NNOver2bRW.png")

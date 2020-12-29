@@ -69,7 +69,7 @@ xmesh = np.array(np.array(fmp["m_h1"]).reshape((len(c.xbins),len(c.ybins))).T)
 ymesh = np.array(np.array(fmp["m_h2"]).reshape((len(c.xbins),len(c.ybins))).T)
 hmesh = np.array(np.array(fmp["pdf"]).reshape((len(c.xbins),len(c.ybins))).T)
 ax.pcolormesh(xmesh,ymesh,hmesh)
-plot_functions.plotXhh()
+plot_functions.plotSR()
 plt.xlabel("$m_{h1}$")
 plt.ylabel("$m_{h2}$")
 plt.savefig(f"kde_2d_fullmassplane_{NTag}b_init.png")
@@ -110,7 +110,7 @@ xmesh = np.array(fmp["m_h1"]).reshape((len(c.xbins),len(c.ybins))).T
 ymesh = np.array(fmp["m_h2"]).reshape((len(c.xbins),len(c.ybins))).T
 hmesh = np.array(new_density).reshape((len(c.xbins),len(c.ybins))).T
 ax.pcolormesh(xmesh,ymesh,hmesh)
-plot_functions.plotXhh()
+plot_functions.plotSR()
 plt.xlabel("$m_{h1}$")
 plt.ylabel("$m_{h2}$")
 plt.savefig(f"kde_2d_fullmassplane_{NTag}b_final.png")
